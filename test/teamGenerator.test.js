@@ -34,4 +34,12 @@ describe("Tests sur le Team Generator", () => {
         expect(teams.getTeams()[3].players.length).to.equal(1);
         expect(teams.getTeams()[0].players).to.not.equal(teams.getTeams()[1].players).to.not.equal(teams.getTeams()[2].players).to.not.equal(teams.getTeams()[3].players);
     });
+
+    it("Vérifier que le capitaine est le premier joueur de l'équipe", () => {
+        const teams = new TeamGenerator(["Léo", "Bob", "Pierre", "Edouard", "Eva", "Frank"], 2);
+        teams.generateTeams();
+
+        expect(teams.getTeams()[0].captain).to.equal(teams.getTeams()[0].players[0]);
+        expect(teams.getTeams()[1].captain).to.equal(teams.getTeams()[1].players[0]);
+    });
 });
