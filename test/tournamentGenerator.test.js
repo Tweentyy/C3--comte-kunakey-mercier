@@ -3,8 +3,10 @@ import { expect } from "chai";
 import TournamentGenerator from "../src/tournamentGenerator.js";
 
 describe("Tests sur le Tournament Generator", () => {
-    it("Générer 2 poules", () => {
-        const tournament = new TournamentGenerator([
+    let tournament;
+
+    beforeEach(() => {
+        const teams = [
             { name: "Team 1", players: ["Léo", "Bob", "Pierre"] },
             { name: "Team 2", players: ["Edouard", "Eva", "Frank"] },
             { name: "Team 3", players: ["Rein", "Brigitte", "Lucio"] },
@@ -13,7 +15,12 @@ describe("Tests sur le Tournament Generator", () => {
             { name: "Team 6", players: ["D.Va", "McCree", "Junkrat"] },
             { name: "Team 7", players: ["Ana", "Bastion", "Mei"] },
             { name: "Team 8", players: ["Chien", "Chat", "Lapin"] }
-        ]);
+        ];
+        tournament = new TournamentGenerator(teams);
+    });
+
+
+    it("Générer 2 poules", () => {
         tournament.generatePoules();
 
         expect(tournament.poules.length).to.equal(2);
@@ -22,16 +29,6 @@ describe("Tests sur le Tournament Generator", () => {
     });
 
     it("Simuler les matchs", () => {
-        const tournament = new TournamentGenerator([
-            { name: "Team 1", players: ["Léo", "Bob", "Pierre"] },
-            { name: "Team 2", players: ["Edouard", "Eva", "Frank"] },
-            { name: "Team 3", players: ["Rein", "Brigitte", "Lucio"] },
-            { name: "Team 4", players: ["Winston", "Tracer", "Soldier 76"] },
-            { name: "Team 5", players: ["Zenyatta", "Genji", "Hanzo"] },
-            { name: "Team 6", players: ["D.Va", "McCree", "Junkrat"] },
-            { name: "Team 7", players: ["Ana", "Bastion", "Mei"] },
-            { name: "Team 8", players: ["Chien", "Chat", "Lapin"] }
-        ]);
         tournament.generatePoules();
         tournament.simulatePoulesMatches();
 
@@ -42,16 +39,6 @@ describe("Tests sur le Tournament Generator", () => {
     });
 
     it("Générer les phases finales", () => {
-        const tournament = new TournamentGenerator([
-            { name: "Team 1", players: ["Léo", "Bob", "Pierre"] },
-            { name: "Team 2", players: ["Edouard", "Eva", "Frank"] },
-            { name: "Team 3", players: ["Rein", "Brigitte", "Lucio"] },
-            { name: "Team 4", players: ["Winston", "Tracer", "Soldier 76"] },
-            { name: "Team 5", players: ["Zenyatta", "Genji", "Hanzo"] },
-            { name: "Team 6", players: ["D.Va", "McCree", "Junkrat"] },
-            { name: "Team 7", players: ["Ana", "Bastion", "Mei"] },
-            { name: "Team 8", players: ["Chien", "Chat", "Lapin"] }
-        ]);
         tournament.generatePoules();
         tournament.simulatePoulesMatches();
         tournament.generateFinalStages();
@@ -63,16 +50,6 @@ describe("Tests sur le Tournament Generator", () => {
     });
 
     it("Générer le tournoi", () => {
-        const tournament = new TournamentGenerator([
-            { name: "Team 1", players: ["Léo", "Bob", "Pierre"] },
-            { name: "Team 2", players: ["Edouard", "Eva", "Frank"] },
-            { name: "Team 3", players: ["Rein", "Brigitte", "Lucio"] },
-            { name: "Team 4", players: ["Winston", "Tracer", "Soldier 76"] },
-            { name: "Team 5", players: ["Zenyatta", "Genji", "Hanzo"] },
-            { name: "Team 6", players: ["D.Va", "McCree", "Junkrat"] },
-            { name: "Team 7", players: ["Ana", "Bastion", "Mei"] },
-            { name: "Team 8", players: ["Chien", "Chat", "Lapin"] }
-        ]);
         tournament.generateTournament();
 
         expect(tournament.poules.length).to.equal(2);
