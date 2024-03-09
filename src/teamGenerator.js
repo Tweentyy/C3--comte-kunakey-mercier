@@ -15,6 +15,7 @@ class TeamGenerator {
       let team = {
         name: teamName,
         players: teamPlayers,
+        captain: teamPlayers[0]
       };
       this.teams.push(team);
       teamIndex++;
