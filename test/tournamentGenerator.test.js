@@ -7,7 +7,7 @@ describe("Tests sur le Tournament Generator", () => {
     let tournament;
 
     beforeEach(() => {
-        const players = ["Léo", "Bob", "Pierre", "Edouard", "Eva", "Frank", "Arthur", "Rein", "Brigitte", "Lucio", "Winston", "Tracer", "Soldier 76", "Zenyatta", "Genji", "Hanzo", "D.Va", "McCree", "Junkrat", "Ana", "Bastion", "Mei", "Chien", "Chat", "Lapin"];
+        const players = ["Leo", "Bob", "Pierre", "Edouard", "Eva", "Frank", "Arthur", "Rein", "Brigitte", "Lucio", "Winston", "Tracer", "Soldier 76", "Zenyatta", "Genji", "Hanzo", "D.Va", "McCree", "Junkrat", "Ana", "Bastion", "Mei", "Chien", "Chat", "Lapin"];
         const teams = new TeamGenerator(players, 3);
         teams.generateTeams();
 

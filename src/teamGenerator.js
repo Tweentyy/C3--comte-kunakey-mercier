@@ -11,7 +11,7 @@ class TeamGenerator {
 
     while (shuffledPlayers.length > 0) {
       let teamPlayers = shuffledPlayers.splice(0, this.playersPerTeam);
-      let teamName = `Équipe ${teamIndex + 1}`;
+      let teamName = `Equipe ${teamIndex + 1}`;
       let team = {
         name: teamName,
         players: teamPlayers,

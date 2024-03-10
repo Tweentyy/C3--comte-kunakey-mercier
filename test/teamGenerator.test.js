@@ -4,7 +4,7 @@ import TeamGenerator from "../src/teamGenerator.js";
 
 describe("Tests sur le Team Generator", () => {
     it("Générer 2 équipes de 3 personnes", () => {
-        const teams = new TeamGenerator(["Léo", "Bob", "Pierre", "Edouard", "Eva", "Frank"]);
+        const teams = new TeamGenerator(["Leo", "Bob", "Pierre", "Edouard", "Eva", "Frank"]);
         teams.generateTeams();
 
         expect(teams.getTeams().length).to.equal(2);
@@ -14,7 +14,7 @@ describe("Tests sur le Team Generator", () => {
     });
 
     it("Générer 3 équipes de 2 personnes", () => {
-        const teams = new TeamGenerator(["Léo", "Bob", "Pierre", "Edouard", "Eva", "Frank"], 2);
+        const teams = new TeamGenerator(["Leo", "Bob", "Pierre", "Edouard", "Eva", "Frank"], 2);
         teams.generateTeams();
 
         expect(teams.getTeams().length).to.equal(3);
@@ -24,7 +24,7 @@ describe("Tests sur le Team Generator", () => {
     });
 
     it("Générer 3 équipes de 2 personnes et 1 équipe de 1 personne", () => {
-        const teams = new TeamGenerator(["Léo", "Bob", "Pierre", "Edouard", "Eva", "Frank", "Arthur"], 2);
+        const teams = new TeamGenerator(["Leo", "Bob", "Pierre", "Edouard", "Eva", "Frank", "Arthur"], 2);
         teams.generateTeams();
 
         expect(teams.getTeams().length).to.equal(4);
@@ -36,7 +36,7 @@ describe("Tests sur le Team Generator", () => {
     });
 
     it("Vérifier que le capitaine est le premier joueur de l'équipe", () => {
-        const teams = new TeamGenerator(["Léo", "Bob", "Pierre", "Edouard", "Eva", "Frank"], 2);
+        const teams = new TeamGenerator(["Leo", "Bob", "Pierre", "Edouard", "Eva", "Frank"], 2);
         teams.generateTeams();
 
         expect(teams.getTeams()[0].captain).to.equal(teams.getTeams()[0].players[0]);
