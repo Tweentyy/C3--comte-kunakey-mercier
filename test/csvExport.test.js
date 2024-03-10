@@ -15,13 +15,13 @@ describe("Tests sur le CSV Export", () => {
     });
 
     it("Exporter un fichier CSV avec des données invalides", () => {
-        const data = [{ name: "Equipe 1", captain: "Leo", players: ["Léo", "Edouard", "Arthur"] }, { name: "Equipe 2", captain: "Edouard" }];
+        const data = [{ name: "Equipe 1", captain: "Leo", players: ["Leo", "Edouard", "Arthur"] }, { name: "Equipe 2", captain: "Edouard" }];
         expect(() => new CsvExport(data)).to.throw("Les données doivent être des objets avec les clés : name, captain et players");
     });
 
     it("Exporter un fichier CSV avec des données valides", async () => {
         const data = [
-            { name: "Equipe 1", captain: "Leo", players: ["Léo", "Edouard", "Arthur"] },
+            { name: "Equipe 1", captain: "Leo", players: ["Leo", "Edouard", "Arthur"] },
             { name: "Equipe 2", captain: "Edouard", players: ["Edouard", "Eva", "Frank"] }
         ];
 
@@ -34,7 +34,7 @@ describe("Tests sur le CSV Export", () => {
 
     it("Exporter un fichier CSV avec des données valides et un chemin invalide", () => {
         const data = [
-            { name: "Equipe 1", captain: "Leo", players: ["Léo", "Edouard", "Arthur"] },
+            { name: "Equipe 1", captain: "Leo", players: ["Leo", "Edouard", "Arthur"] },
             { name: "Equipe 2", captain: "Edouard", players: ["Edouard", "Eva", "Frank"] }
         ];
 
