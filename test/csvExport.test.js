@@ -31,4 +31,14 @@ describe("Tests sur le CSV Export", () => {
 
         expect(fs.existsSync(path)).to.be.true;
     });
+
+    it("Exporter un fichier CSV avec des données valides et un chemin invalide", () => {
+        const data = [
+            { name: "Equipe 1", captain: "Leo", players: ["Léo", "Edouard", "Arthur"] },
+            { name: "Equipe 2", captain: "Edouard", players: ["Edouard", "Eva", "Frank"] }
+        ];
+
+        const path = 0;
+        expect(() => new CsvExport(data, path)).to.throw("Le chemin du fichier doit être une chaîne de caractères");
+    });
 });
