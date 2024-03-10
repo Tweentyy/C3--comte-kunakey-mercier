@@ -1,26 +1,22 @@
 import { describe, it } from "mocha";
 import { expect } from "chai";
 import TournamentGenerator from "../src/tournamentGenerator.js";
+import TeamGenerator from "../src/teamGenerator.js";
 
 describe("Tests sur le Tournament Generator", () => {
     let tournament;
 
     beforeEach(() => {
-        const teams = [
-            { name: "Team 1", players: ["Léo", "Bob", "Pierre"] },
-            { name: "Team 2", players: ["Edouard", "Eva", "Frank"] },
-            { name: "Team 3", players: ["Rein", "Brigitte", "Lucio"] },
-            { name: "Team 4", players: ["Winston", "Tracer", "Soldier 76"] },
-            { name: "Team 5", players: ["Zenyatta", "Genji", "Hanzo"] },
-            { name: "Team 6", players: ["D.Va", "McCree", "Junkrat"] },
-            { name: "Team 7", players: ["Ana", "Bastion", "Mei"] },
-            { name: "Team 8", players: ["Chien", "Chat", "Lapin"] }
-        ];
-        tournament = new TournamentGenerator(teams);
+        const players = ["Léo", "Bob", "Pierre", "Edouard", "Eva", "Frank", "Arthur", "Rein", "Brigitte", "Lucio", "Winston", "Tracer", "Soldier 76", "Zenyatta", "Genji", "Hanzo", "D.Va", "McCree", "Junkrat", "Ana", "Bastion", "Mei", "Chien", "Chat", "Lapin"];
+        const teams = new TeamGenerator(players, 3);
+        teams.generateTeams();
+
+        tournament = new TournamentGenerator(teams.getTeams());
     });
 
 
     it("Générer 2 poules", () => {
+        console.log(tournament.teams);
         tournament.generatePoules();
 
         expect(tournament.poules.length).to.equal(2);
