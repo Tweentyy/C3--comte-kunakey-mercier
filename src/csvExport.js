@@ -9,7 +9,8 @@ class CsvExport {
                 { id: "name", title: "Nom" },
                 { id: "captain", title: "Capitaine" },
                 { id: "players", title: "Joueurs" }
-            ]
+            ],
+            fieldDelimiter: ";"
         });
     }
 
